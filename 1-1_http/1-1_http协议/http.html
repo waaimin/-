@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>http执行顺序</div>
+        <div>发起请求：在浏览器输入网址，回车</div>
+        <div>1、redirectStart(跳转) =>浏览器想判断是否跳转并且浏览器跳到哪里</div>
+        <div>2、App cache(应用缓存) =>判断当前请求链接是否有缓存，如果没有就去服务器请求资源</div>
+        <div>3、DNS（DNS查找）=> 访问的是域名，先查找域名对应的IP</div>
+        <div>4、TCP（创建TCP链接）=> 有IP之后经过TCP三次握手后创建TCP链接，如果是https请求，则创建https的链接（中间保证数据安全的）</div>
+        <div>4、Request（发送请求）=> 发送请求数据包</div>
+        <div>5、Response（接受相应）=> 服务器接受到数据后，进行数据操作后，返回请求想要的内容，返回数据</div>
+
+    </div>
+</body>
+</html>

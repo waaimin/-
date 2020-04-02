@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+</head>
+<body>
+    <!-- 基础用法 --> 
+    <!-- 去除下载和全屏 -->
+    <!-- <video src="./ demo1.mp4"  width="400" height="225" controls controlslist="nodownload nofullscreen"></video> -->
+
+    <!-- 贴图 -->
+    <!-- <video src="./demo1.mp4" width="400" height="225" controls poster="./demo.jpg"></video> -->
+
+    <!-- 自动播放 -->
+    <!-- <video src="./demo1.mp4" width="400" height="225" autoplay></video> -->
+
+    <!-- 静音 -->
+    <!-- <video src="./demo1.mp4" width="400" height="255" controls muted></video> -->
+
+    <!-- 循环播放 -->
+    <!-- <video src="./demo1.mp4" width="400" height="255" controls loop></video> -->
+
+    <!-- 预加载 -->
+    <!-- <video src="./demo2.mp4" width="400" height="255" controls preload></video> -->
+
+    <!-- 音量控制 -->
+    <!-- <video src="./demo2.mp4" id="_volume" width="400" height="255" controls ></video>
+    <script>
+        var v = document.getElementById('_volume');
+        console.log(v);
+        v.volume = 0.1;
+    </script> -->
+
+    <!-- 设置播放时间 -->
+    <!-- <video src="./demo2.mp4" id="_time" width="400" height="255" controls ></video>
+    <script>
+        var v = document.getElementById('_time');
+        console.log(v.currentTime);
+        v.currentTime = 40; //单位：秒
+    </script> -->
+
+    <!-- 播放地址切换 -->
+    <!-- <video src="./demo2.mp4" id="_src" width="400" height="255" controls ></video>
+    <script>
+        var v = document.getElementById('_src');
+        console.log(v.src);
+        setTimeout(() => {
+            v.src = './demo1.mp4'
+        }, 2000);
+    </script> -->
+
+    <!-- 备用地址 -->
+    <!-- <video id="_source">
+        <source src="./demo0.mp4" width="400" height="255">
+        <source src="./demo2.mp4" width="400" height="255">
+    </video>
+    <script>
+        var v =  document.getElementById('_source')
+        setTimeout(function(){
+            console.log(v.currentSrc)
+        },1000)
+    </script> -->
+
+    <video src="./demo2.mp4" id="_vs" width="400" height="255" controls></video>
+    <script>
+        var vs = document.getElementById('_vs');
+        console.log(vs)
+        //loadstart 视频查找
+        vs.addEventListener('loadstart',function(e){
+            console.log(e)
+            console.log('loadstart',vs.duration)
+        })
+        // durationchange 时长变化
+        vs.addEventListener('durationchange',function(e){
+            console.log(e)
+            console.log('durationchange',vs.duration)
+        })
+        //loadedmetadata 视频源数据
+        vs.addEventListener('loadedmetadata',function(){
+            console.log('loadedmetadata')
+        })
+        // loadeddata 
+        vs.addEventListener('loadeddata',function(e){
+            console.log('loadeddata')
+        })
+        // progress 请求视频数据
+        vs.addEventListener('progress',function(e){
+            console.log('progress')
+        })
+        // canplay 没有足够的针，但是能够播放，继续下载
+        vs.addEventListener('canplay',function(e){
+            console.log('canplay')
+        })
+        // canplaythrough  能够流畅的播放
+        vs.addEventListener('canplaythrough',function(e){
+            console.log('canplaythrough')
+        })
+        // play 播放
+        vs.addEventListener('play',function(e){
+            console.log('play')
+        })
+        // pause 暂停
+        vs.addEventListener('pause',function(e){
+            console.log('pause')
+        })
+        // seeking 点当前位置
+        vs.addEventListener('seeking',function(e){
+            console.log('seeking')
+        })
+        // seeked 设置结束
+        vs.addEventListener('seeked',function(e){
+            console.log('seeked')
+        })
+        // waiting 数据没加载完触发  :设置点倒退
+        vs.addEventListener('waiting',function(e){
+            console.log('waiting')
+        })
+        // playing 正在播放
+        vs.addEventListener('playing',function(e){
+            console.log('playing')
+        })
+        // timeupdate
+        vs.addEventListener('timeupdate',function(e){
+            console.log('timeupdate')
+        })
+        // ended
+        vs.addEventListener('ended',function(){
+            console.log('ended')
+        })
+        // error
+        vs.addEventListener('error',function(){
+            console.log('error')
+        })
+    </script>
+        
+</body>
+</html>
